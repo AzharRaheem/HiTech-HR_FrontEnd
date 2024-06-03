@@ -1,0 +1,98 @@
+<!-- <app-public-setting-pop-up (publicSetting)="addpublicSetting($event)" ></app-public-setting-pop-up> -->
+<div class="container-fluid">
+    <div class="wrapper">
+        <div class="modal-header  ">
+            <h3 class="modal-title " id="exampleModalLabel">Attendance Report</h3>
+            <img class="attendanceimg " src="../../../assets/images/attendence.jpg" alt="" >
+        </div>
+        <div class="modal-body">
+        
+            <form (submit)="search()">
+                <div class="inputWrapper pe-3">
+                    <div class="input-group rounded searchContainer  px-3">
+                        <input name="search" (input)="enabledSearch()" type="text" class="form-control rounded"
+                            placeholder="Enter Employee Name" aria-label="Search" aria-describedby="search-addon"
+                            [(ngModel)]="Search" />
+                        <span class="input-group-text border-0" id="search-addon">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </div>
+                    <div class="d-flex">
+                        <div class="d-flex ps-3 inputContainer">
+                            <label class="mylabel">From</label>
+                            <input type="date" class="form-control date" id="from" name="fromDate"
+                                [(ngModel)]="fromDate" (change)="enabledSearch()">
+                            <label class="mylabel">To</label>
+                            <input type="date" class="form-control date" id="to" name="toDate" [(ngModel)]="toDate"
+                                (change)="enabledSearch()">
+                           
+                            <i (click)="downloadTable()"  class="bi bi-file-earmark-arrow-down fs-2 ms-1 text-success"></i>
+                            <input type="file" style="display: none" #importexcel (change)="fileSelection($event)" >
+                            <i (click)="importexcel.click();" class="bi bi-file-earmark-arrow-up fs-2 ms-1 text-success"></i>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-search px-5 me-2" [disabled]="disablesSearch">
+                    Search
+                </button>
+            </form>
+            <div class="tableContainer">
+                <table class="table table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Department</th>
+                            <th scope="col">Arriving Time</th>
+                            <th scope="col">Leaving Time</th>
+                            <th scope="col">Date</th>
+                            <th scope="col" colspan="2">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let attendence of attendences;let index = index;">
+                        <tr>
+                            <th scope="row">{{index+1}}</th>
+                            <td>{{attendence.employeeName}}</td>
+                            <td>{{attendence.departmentName}}</td>
+                            <td>{{attendence.arrivingTime}}</td>
+                            <td>{{attendence.leavingTime}}</td>
+                            <td>{{ attendence.dayName + ' : ' + attendence.dayDate }}</td>
+
+                            <td>
+                                <i  (click)="onClickUpdate(attendence.id)"
+                                    class="bi bi-pencil-fill fs-4 mx-2"></i>
+                                <i (click)="onClickDelete(attendence.id)"
+                                    class="bi bi-trash text-danger fs-4 mx-2"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div *ngIf="tableLoading" class="spinner-border text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table table-hover text-center" id="attendneceTable" style="display: none;">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Department</th>
+            <th scope="col">Arriving Time</th>
+            <th scope="col">Leaving Time</th>
+            <th scope="col">Date</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let attendence of attendences;let index = index;">
+        <tr>
+            <th scope="row">{{index+1}}</th>
+            <td>{{attendence.employeeName}}</td>
+            <td>{{attendence.departmentName}}</td>
+            <td>{{attendence.arrivingTime}}</td>
+            <td>{{attendence.leavingTime}}</td>
+            <td>{{ attendence.dayName + ' : ' + attendence.dayDate }}</td>
+        </tr>
+    </tbody>
+</table>

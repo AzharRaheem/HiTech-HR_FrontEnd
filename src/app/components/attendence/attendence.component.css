@@ -1,0 +1,104 @@
+.container-fluid {
+    height: 100vh;
+    padding-top: 4vh;
+    padding-bottom: 5vh;
+}
+
+i {
+    color: #17B890;
+}
+
+.wrapper {
+    width: 67vw;
+    margin-left: 20%;
+    background-color: white;
+    padding-bottom: 3vh;
+    padding-inline: 1vw;
+    border-radius: 20px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6vh;
+}
+
+.modal-title {
+    margin-left: 25%;
+    margin-top: 2vh;
+    color: #17B890;
+}
+
+.attendanceimg {
+    width: 10vw;
+    margin-right: 30%;
+}
+
+.inputWrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 5vw;
+
+}
+
+.searchContainer {
+    width: 20vw;
+    margin-left: 5vw;
+}
+
+.inputContainer {
+    width: 32vw;
+    display: flex;
+    justify-content: end;
+}
+
+.btn-search {
+    background-color: #17B890;
+    color: white;
+    margin-block: 5vh;
+    margin-left: 44%;
+}
+
+.tableContainer {
+    height: 37vh;
+    width: 65vw;
+    background-color: white;
+    overflow-y: scroll;
+    position: relative;
+}
+
+thead {
+    font-size: 14px;
+}
+
+th {
+    align-content: center;
+    text-align: center;
+    position: sticky;
+    top: 0px;
+}
+td{
+    align-content: center;  
+}
+
+.spinner-border {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3rem;
+    height: 3rem;
+}
+
+.mylabel {
+    padding: 10px;
+}
+
+.bi-filetype-xlsx {
+    font-size: 32px;
+    margin-left: 2vw;
+
+}
+
+i {
+    cursor: pointer;
+}

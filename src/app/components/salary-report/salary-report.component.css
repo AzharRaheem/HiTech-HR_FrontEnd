@@ -1,0 +1,134 @@
+i {
+    color: #17B890;
+}
+
+.container-fluid {
+    height: 100vh;
+    padding-top: 5vh;
+}
+
+.wrapper {
+    width: 92%;
+    margin-left: 7%;
+    background-color: white;
+    padding-bottom: 3vh;
+    padding-inline: 1vw;
+    border-radius: 20px;
+}
+
+.pdf-container {
+    height: 0px;
+    overflow: hidden;
+    width: 55vw;
+    margin: auto;
+}
+
+.prop-group {
+    margin-block: 2vh;
+    display: flex;
+    margin: auto;
+    width: fit-content;
+}
+
+.prop-title {
+    width: 15vw;
+    margin-right: 10vw;
+}
+
+.prop-content {
+    width: 8vw;
+    font-size: 12px;
+}
+
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 2vh;
+}
+
+.modal-title {
+    margin-left: 34%;
+    margin-top: 10vh;
+    color: #17B890;
+}
+
+.salaryimg {
+    width: 15vw;
+    margin-right: 33%;
+    margin-top: 2vh;
+}
+
+.inputWrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 5vw;
+
+}
+
+.searchContainer {
+    width: 20vw;
+    margin-left: 5vw;
+}
+
+.inputContainer {
+    width: 15vw;
+    display: flex;
+    justify-content: end;
+}
+
+.custom-select {
+    width: 8vw;
+}
+
+.label {
+    width: 8vw;
+    align-content: center;
+    text-align: end;
+    padding-right: 1vw;
+}
+
+.btn-search {
+    background-color: #17B890;
+    color: white;
+    margin-block: 5vh;
+    margin-left: 45%;
+}
+
+.tableContainer {
+    height: 38vh;
+    background-color: white;
+    overflow-y: scroll;
+    position: relative;
+}
+
+thead {
+    font-size: 14px;
+}
+
+th {
+    align-content: center;
+    text-align: center;
+    position: sticky;
+    top: 0px;
+}
+
+td {
+    align-content: center;
+}
+
+.spinner-border {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3rem;
+    height: 3rem;
+}
+
+.printbtn {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    /* Optional: removes any default padding */
+}

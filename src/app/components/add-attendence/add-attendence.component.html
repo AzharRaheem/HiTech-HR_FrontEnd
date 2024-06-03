@@ -1,0 +1,87 @@
+<div class="container-fluid">
+    <div class="wrapper">
+        <div class="model-header pt-5 ">
+            <i class="bi bi-person-lines-fill me-2"></i>
+            <h4 class="model-titel ">{{ attendanceId == 0 ? "Add Attendance" : "Edit Attendance" }}</h4>
+        </div>
+        <div class="model-body">
+            <form (submit)="attendanceHandler($event)" [formGroup]="addAttendanceForm">
+                <div class="form-group">
+                    <div class="row justify-content-sm-around">
+                        <div class="col-sm-5 input-g errorWrapper">
+                            <label for="name">Name</label>
+                            <!-- Use a dropdown menu for employee selection -->
+                            <select class="form-select normalfont" id="name" name="employeeName"
+                                formControlName="employeeName">
+                                <option *ngFor="let employee of employees" [value]="employee.name">{{ employee.name }}
+                                </option>
+                            </select>
+                            <!--start of the validation for name -->
+                            <ng-container *ngIf="getName.touched&&!isEditMode">
+                                <div *ngIf="getName.hasError('required')" id="emailHelp"
+                                    class="form-text text-danger normalfont"> Name is Required </div>
+                            </ng-container>
+                            <!-- end of validations  -->
+
+                        </div>
+                        <div class="col-sm-5 input-g errorWrapper">
+                            <label for="arrivingtime">Arriving Time</label>
+                            <input type="Time" class="form-control normalfont" id="arrivingtime" name="arrivingTime"
+                                formControlName="arrivingTime" />
+                            <!-- start of validation -->
+                            <div *ngIf="arrivingError" id="emailHelp" class="form-text text-danger normalfont">Since you
+                                entered leaving time enter arriving time </div>
+                            <!-- end of validation -->
+                        </div>
+                    </div>
+                    <div class="row justify-content-sm-around">
+                        <div class="col-sm-5  input-g errorWrapper">
+                            <label for="date">Date</label>
+                            <input type="Date" placeholder="Enter Date" class="form-control normalfont" id="Date"
+                                name="dayDate" formControlName="dayDate" />
+                            <ng-container *ngIf="getDate.touched">
+                                <div *ngIf="getDate.hasError('required')" id="emailHelp"
+                                    class="form-text text-danger normalfont"> Date is Required </div>
+                                <div *ngIf="officialHoliday" id="emailHelp" class="form-text text-danger normalfont">
+                                    This is Official Holiday </div>
+                                <div *ngIf="weekendHoliday" id="emailHelp" class="form-text text-danger normalfont">This
+                                    is Weekend Holiday </div>
+                                <div *ngIf="attendanceExist" id="emailHelp" class="form-text text-danger normalfont">
+                                    This attendence already exist</div>
+                                <div *ngIf="unValidDate" id="emailHelp" class="form-text text-danger normalfont">
+                                    {{dateError}}</div>
+                                <div *ngIf="isDateBeforeContract" id="emailHelp"
+                                    class="form-text text-danger normalfont">
+                                    This Date Before Contract Date</div>
+                            </ng-container>
+                        </div>
+                        <div class="col-sm-5  input-g errorWrapper">
+                            <label for="leavingtime">Leaving Time</label>
+                            <input type="time" placeholder="Password" class="form-control" id="leavingtime"
+                                name="leavingTime" formControlName="leavingTime" />
+                            <!-- start of validation -->
+                            <div *ngIf="leavingError" id="emailHelp" class="form-text text-danger normalfont">Since you
+                                enterd arriving time enter leaving time</div>
+                            <!-- end of validation -->
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-save px-5 ms-5 mt-3"
+                    [disabled]="!addAttendanceForm.valid || (!addAttendanceForm.valid && isEditMode)">
+                    {{ attendanceId == 0 ? "Add" : "Edit" }}
+
+                </button>
+                <!-- <div class="timeError" *ngIf = "timeError"><p class="form-text text-danger normalfont">Since you enterd arriving time enter leaving time</p></div> -->
+            </form>
+            <div class="img-bage">
+                <img src="../../../assets/images/attendance.png" alt="name">
+            </div>
+
+        </div>
+
+    </div>
+    <div *ngIf="loading" class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+
+</div>

@@ -1,0 +1,70 @@
+<div class="container-fluid">
+    <div class="wrapper">
+        <div class="modal-header">
+            <h3 class="modal-title " id="exampleModalLabel">Official Holidays</h3>
+            <img class="holidayimg" src="../../../assets/images/holidays.png" alt="">
+
+        </div>
+        <div class="modal-body">
+            <form (submit)="addHoliday()">
+                <div class="form-group row my-2 mt-3">
+                    <label for="extraHours" class="col-sm-2 col-form-label">Holiday Name</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="holidayName" name="holidayName"
+                            placeholder="Enter Holiday Name" [(ngModel)]="holidayName" (input)="changeDisable()">
+                        <div *ngIf="holidayNameField" id="require1" class="form-text text-danger m-0 p-0 ">
+                            *Field is Required
+                        </div>
+                    </div>
+                    <label for="extraHours" class="col-sm-2 col-form-label ms-5">Holiday Date</label>
+                    <div class="col-sm-4 ">
+                        <input type="date" class="form-control date" id="holidayDate" name="holidayDate"
+                            placeholder="Enter Holiday Date" [(ngModel)]="holidayDate" (input)="changeDisable()">
+                        <div *ngIf="holidayDateField" id="require1" class="form-text text-danger ms-1">
+                            *Field is Required
+                        </div>
+                        <ng-container *ngIf="!holidayDateField">
+                            <div *ngIf="ununiqHolidayDate" id="require12" class="form-text text-danger text-center ">
+                                Date Must be Uniqe
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+                <button type="click" *ngIf="!update" class="btn btn-save px-5 me-2" (click)="onClickCreate()"
+                    [disabled]="disabledHolidaybtn">
+                    Add
+                </button>
+                <button type="click" *ngIf="update" class="btn btn-save px-5 me-2" [disabled]="disabledHolidaybtn">
+                    Update
+                </button>
+            </form>
+            <div class="tableContainer">
+                <table class="table table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let item of holidays;let index = index;">
+                        <tr>
+                            <th scope="row">{{index+1}}</th>
+                            <td>{{item.name}}</td>
+                            <td><span class="text-secondary">{{item.dayName}} , </span>{{item.holidayDate}}</td>
+
+                            <td><i (click)="onClickUpdate(item.id)" class="bi bi-pencil-fill fs-4"></i><i
+                                    (click)="onClickDelete(item.id)" class="bi bi-trash text-danger fs-4"></i></td>
+                            <!-- deleteHoliday(item.id)
+                                    editHoliday(item.id) -->
+                        </tr>
+                    </tbody>
+                </table>
+                <div *ngIf="tableLoading" class="spinner-border text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

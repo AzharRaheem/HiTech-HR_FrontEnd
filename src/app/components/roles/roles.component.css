@@ -1,0 +1,97 @@
+.page {
+  border-radius: 20px;
+  height: 80vh;
+  background-color: white;
+  padding-bottom: 200px;
+  width: 67vw;
+  margin-left: 10%;
+  overflow: hidden;
+  /* Hide overflow to prevent table border from extending beyond page border */
+}
+
+.page-title {
+  background-color: #17B890;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  text-align: center;
+  color: white;
+  padding-top: 5px;
+  font-size: 30px;
+  border-bottom: 2px solid #17B890;
+}
+
+.container {
+  height: 100vh;
+  padding-top: 50px;
+  margin-left: 10vw;
+
+}
+
+.table-position {
+  border-radius: 20px;
+  margin: 0 5vw;
+  margin-top: 50px;
+  margin-bottom: 300px;
+  overflow: auto;
+  height: 40vh;
+
+}
+
+.icon {
+  padding-left: 50vw;
+  cursor: pointer;
+}
+
+td {
+  cursor: pointer;
+}
+
+td i {
+
+  font-size: 25px;
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  border: none;
+  border-bottom: 3px solid #17B890;
+}
+
+/* Additional styles for the form position */
+.form-position {
+  padding-top: 25px;
+  margin-left: 15%;
+}
+
+/* Additional styles for the text input */
+.form-position .text {
+  border-radius: 50px;
+
+  border: 1px solid #17B890;
+  outline: #17B890;
+  width: 50vh;
+  background-color: white;
+}
+
+/* Additional styles for the save button */
+.btn-save {
+  border-radius: 50px;
+  background-color: #17B890;
+  color: white;
+  border: 1px solid #17B890;
+  outline: #17B890;
+  width: 10vw;
+  padding: 1vh 0vw;
+  margin-left: 42vw;
+  text-align: center;
+}
+
+.spinner-border {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  width: 3rem;
+  height: 3rem;
+}

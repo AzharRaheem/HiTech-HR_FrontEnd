@@ -1,0 +1,92 @@
+<div class="container-fluid">
+    <div class="wrapper">
+        <div class="modal-header ">
+            <h3 class="modal-title " id="header">Salary Report</h3>
+            <img class="salaryimg" src="../../../assets/images/salaryReport2.png" alt="">
+        </div>
+        <div class="container mt-3" style=" height: .1vh;overflow: hidden;">
+            <div style="height: 100vh;width: 80vw;flex-direction: row;justify-content: end;" id="pdfContent">
+                <img style="width: 10vw;height: 6vh;margin-left: 85%;margin-top: 3vh;"
+                    src="../../../assets/images/logo2.jpg" alt="">
+            </div>
+
+        </div>
+        <div class="modal-body">
+            <form (submit)="search()">
+                <div class="inputWrapper pe-3">
+                    <div class="input-group rounded searchContainer  px-3">
+                        <input name="search" (input)="enabledSearch()" type="text" class="form-control rounded"
+                            placeholder="Enter Employee Name" aria-label="Search" aria-describedby="search-addon"
+                            [(ngModel)]="Search" />
+                        <span class="input-group-text border-0" id="search-addon">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </div>
+                    <div class="d-flex">
+                        <div class="d-flex ps-3 inputContainer ">
+                            <label for="months" class="label">Months</label>
+                            <select (change)="enabledSearch()" class="custom-select   p-1" id="months" name="months"
+                                [(ngModel)]="Month">
+                                <option selected disabled>Choose...</option>
+                                <option *ngFor="let month of months" [value]="month">{{month}}</option>
+                            </select>
+                        </div>
+                        <div class="d-flex ps-3 inputContainer">
+                            <label for="years" class="label">Years</label>
+                            <select (change)="enabledSearch()" class="custom-select  p-1" id="years" name="years"
+                                [(ngModel)]="Year">
+                                <option selected disabled>Choose...</option>
+                                <option *ngFor="let year of years" [value]="year">{{year}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-search px-5 me-2" [disabled]="disablesSearch">
+                    Search
+                </button>
+            </form>
+            <div class="tableContainer">
+                <table class="table table-hover text-center">
+                    <thead>
+                        <tr>
+                            <!-- <th scope="col">#</th> -->
+                            <th scope="col">Name</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Main Salary</th>
+                            <th scope="col">Attend Days</th>
+                            <th scope="col">Absent Days</th>
+                            <th scope="col">OverTime Hours</th>
+                            <th scope="col">Deductions Hours</th>
+                            <th scope="col">Total OverTime</th>
+                            <th scope="col">Total Deductions</th>
+                        
+                            <th scope="col">Net Salary</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let item of salaryReports;let index = index;">
+                        <tr>
+                            <!-- <th scope="row">{{index+1}}</th> -->
+                            <td>{{item.empName}}</td>
+                            <td>{{item.nameMonth}}-{{item.nameYear}}</td>
+                            <td>{{item.mainSalary | currency:'EGP'}}</td>
+                            <td>{{item.attendDay}}</td>
+                            <td>{{item.absentDay}}</td>
+                            <td>{{item.extraHours}}</td>
+                            <td>{{item.dedectionHours}}</td>
+                            <td>{{item.totalExtra| currency:'EGP'}}</td>
+                            <td>{{item.totalDiscount| currency:'EGP'}}</td>
+                         
+                            <td>{{item.totalNetSalary | currency:'EGP'}}</td>
+                            <td><button class="printbtn" (click)="generatePDF(index)"><i
+                                        class="bi bi-filetype-pdf fs-4 text-danger"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div *ngIf="tableLoading" class="spinner-border text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+.wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Align items vertically */
+    align-items: center;
+    /* Center items horizontally */
+   
+    /* Adjust background size */
+}
+
+.welcomeWrapper {
+    margin-top: 5vh;
+}
+
+.welcometxt {
+    color: #1273ba;
+    letter-spacing: 0.5vw;
+    font-style: italic;
+    font-size: 40px;
+    margin-left: 5vw;
+}

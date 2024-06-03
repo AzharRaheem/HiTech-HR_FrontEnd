@@ -1,0 +1,217 @@
+.page {
+  border-radius: 20px;
+  height: 95vh;
+  background-color: white;
+  padding-bottom: 0;
+
+
+  overflow: hidden;
+  /* Hide overflow to prevent table border from extending beyond page border */
+}
+
+.page-title {
+  background-color: #17B890;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  text-align: center;
+  color: white;
+  padding-top: 5px;
+  font-size: 30px;
+  border-bottom: 2px solid #17B890;
+}
+
+.container {
+  height: 100vh;
+  padding-top: 10px;
+  margin-left: 10vw;
+
+}
+
+.table-position {
+  border-radius: 20px;
+  margin: 0 7vw;
+  margin-top: 10px;
+  margin-bottom: 300px;
+  margin-left: 10vw;
+
+
+}
+
+/*.tableFixHead {
+  overflow: auto;
+  height: 20vh;
+}*/
+
+.table-fixed thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #17B890;
+  color: #fff;
+  border: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+  border: 1px solid;
+}
+
+th,
+td {
+  padding: 8px 10px;
+}
+
+.table-fixed tbody tr {
+  border-bottom: 1px solid #ddd;
+  /* Add a border to the bottom of each row */
+}
+
+.table-fixed tbody tr td {
+  background: #fff;
+}
+
+.table-fixed>tbody>tr>td:last-child {
+  border-right: 0;
+}
+
+.table-fixed tbody td,
+.table-fixed thead>tr>th {
+  float: left;
+  font-size: 14px;
+  padding-left: 20px !important;
+}
+
+.table-fixed .col {
+  width: 20%;
+  width: 20%;
+}
+
+/*.table-fixed tbody {
+  display: block;
+  height: calc(10vh - 2px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+*/
+.table-fixed tbody {
+  display: block;
+  height: max-content;
+  overflow-y: auto;
+}
+
+.table-fixed tr {
+  display: block;
+}
+
+.table-fixed tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+
+
+/* Additional styles for the form position */
+.form-position {
+  padding-top: 1vh;
+  margin-left: 40%;
+}
+
+/* Additional styles for the text input */
+.form-position .text {
+  border-radius: 50px;
+  padding: 5px 20px;
+  border: 1px solid #17B890;
+  outline: #17B890;
+  width: 50vh;
+  background-color: white;
+}
+
+/* Additional styles for the save button */
+.btn-save {
+  border-radius: 50px;
+  background-color: #17B890;
+  color: white;
+  border: 1px solid #17B890;
+  outline: #17B890;
+  width: 7vw;
+  padding: 1vh 0vw;
+  margin-right: 20px;
+  text-align: center;
+}
+
+/* Additional styles for the choose link */
+.choose {
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+/* Additional styles for the permission selection */
+.perm-select {
+  margin-left: 30vw;
+  padding-top: 20px;
+}
+
+/* Additional styles for the "All" and "Custom" buttons */
+.all {
+
+  background-color: #ddd;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+.custom {
+  background-color: #ddd;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+.all:focus {
+  background-color: rgb(7, 148, 230);
+  box-shadow: #ddd 0px 0px 0px 1px;
+}
+
+.custom:focus {
+  background-color: rgb(7, 148, 230);
+  box-shadow: #ddd 0px 0px 0px 1px;
+}
+
+/* Additional styles for the checkboxes within table cells */
+td input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+}
+
+.validation-msg {
+  margin-left: 12vw;
+}
+
+.btn-seve {
+  background-color: #17B890;
+  color: white;
+  border-radius: 10px;
+  padding: 1.5vh 1vw;
+  width: 10vw;
+  border: none;
+  margin-top: 2vh;
+  margin-left: 76%;
+}
+
+.error {
+  color: red;
+  margin-left: 55%;
+}
+
+.spinner-border {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3rem;
+  height: 3rem;
+}

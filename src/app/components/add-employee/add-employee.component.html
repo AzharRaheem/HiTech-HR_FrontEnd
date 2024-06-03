@@ -1,0 +1,188 @@
+<div class="container-fluid">
+    <div class="card">
+        <div class="headerWrapper">
+            <img src="../../../assets/images/addemployee.png" alt="add emp" class="addEmpImg" />
+            <div class="main">
+                <h3 id="title" class="header__title">{{ employeeId == 0 ? "Add Employee" : "Edit Employee"}}</h3>
+                <p id="description" class="header__description">
+                    Please provide employee personal and employment details
+                </p>
+            </div>
+        </div>
+        <hr>
+        <form (submit)="employeeHandler($event)" [formGroup]="addempform" class="row" style="padding-left: 8vw;">
+            <div class="col-md-6">
+                <div class="mb-3 modal-header-personal">
+                    <h4 class="personaldata">Personal Data</h4>
+                </div>
+
+                <div class="inputwrapper ">
+                    <label for="name" class="form-label">Name</label>
+                    <input (input)="removedublicateEmpNameError()" type="text" class="form-control " id="name"
+                        name="name" formControlName="name" placeholder="Enter Name">
+                    <ng-container *ngIf="getEmployeename.touched">
+                        <div *ngIf="getEmployeename.hasError('required')" id="emailHelp"
+                            class="form-text text-danger normalfont"> Name is Required </div>
+                        <div *ngIf="getEmployeename.hasError('minlength')" id="emailHelp"
+                            class="form-text text-danger normalfont">Name Must be more than 3 characters
+                        </div>
+                        <div *ngIf="dublicateEmpName" id="emailHelp" class="form-text text-danger normalfont">
+                            Duplicate employee name
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="inputwrapper ">
+                    <label for="nationality" class="form-label">Nationality</label>
+                    <input type="text" class="form-control" id="nationality" name="nationality"
+                        formControlName="nationality" placeholder="Enter Nationality">
+                    <ng-container *ngIf="getEmployeenationality.touched">
+                        <div *ngIf="getEmployeenationality.hasError('required')" id="emailHelp"
+                            class="form-text text-danger normalfont"> Nationality is Required </div>
+                    </ng-container>
+                </div>
+
+                <div class="inputwrapper ">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="address" name="address" formControlName="address"
+                        placeholder="Enter Address">
+                    <ng-container *ngIf="getEmployeeaddress.touched">
+                        <div *ngIf="getEmployeeaddress.hasError('required')" id="emailHelp"
+                            class="form-text text-danger normalfont"> Address is Required </div>
+                        <div *ngIf="getEmployeeaddress.hasError('minlength')" id="emailHelp"
+                            class="form-text text-danger normalfont"> InValid Address </div>
+                    </ng-container>
+                </div>
+                <div class="inputwrapper ">
+                    <label for="birthdate" class="form-label">Birth Date</label>
+                    <input type="date" class="form-control" id="birth" name="birthDate" formControlName="birthDate">
+                    <ng-container *ngIf="getEmployeebirthDate.touched">
+                        <div *ngIf="getEmployeebirthDate.hasError('required')" id="emailHelp"
+                            class="form-text text-danger normalfont"> Birth Date is Required </div>
+                        <div *ngIf="getEmployeebirthDate.hasError('minAge')" id="emailHelp"
+                            class="form-text text-danger normalfont"> Age must be 20 or older. </div>
+                    </ng-container>
+                </div>
+
+                <div class="inputwrapper ">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" id="phone" name="phoneNumber" formControlName="phoneNumber"
+                        placeholder="Enter Phone Number">
+                    <ng-container *ngIf="getEmployeephoneNumber.touched">
+                        <div *ngIf="getEmployeephoneNumber.hasError('required')" id="emailHelp"
+                            class="form-text text-danger normalfont"> Phone Number is Required </div>
+                        <div *ngIf="getEmployeephoneNumber.hasError('pattern')" id="emailHelp"
+                            class="form-text text-danger normalfont">InValid Phone Number </div>
+                    </ng-container>
+                </div>
+                <div class="inputwrapper ">
+                    <label for="id" class="form-label">National ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        placeholder="Enter National ID" (input)="removeInvalidId()">
+                    <ng-container *ngIf="getEmployeeid.touched">
+                        <div *ngIf="getEmployeeid.hasError('required')" id="emailHelp"
+                            class="form-text text-danger normalfont"> National ID is Required </div>
+                        <div *ngIf="getEmployeeid.hasError('pattern')" id="emailHelp"
+                            class="form-text text-danger normalfont">InValid National ID </div>
+                        <div *ngIf="invalidId" id="emailHelp" class="form-text text-danger normalfont">This
+                            National ID already Exist </div>
+                    </ng-container>
+                </div>
+
+                <!-- start of gender -->
+                <div class="" style="height: 8vh ;">
+                    <div style="height: 4vh ;">
+                        <label class="form-label">Gender</label>
+                        <div class="radio-check">
+                            <input class="form-check-input" type="radio" name="gender" formControlName="gender"
+                                id="male" value="male">
+                            <label class="form-check-label" for="male">Male</label>
+
+                            <input class="form-check-input ms-4" type="radio" name="gender" formControlName="gender"
+                                id="female" value="female">
+                            <label class="form-check-label" for="female">Female</label>
+                        </div>
+                    </div>
+                    <ng-container *ngIf="getEmployeegender.touched">
+                        <div *ngIf="getEmployeegender.hasError('required')" id="emailHelp"
+                            class="form-text text-danger normalfont"> Gender is Required </div>
+                    </ng-container>
+                </div>
+                <!-- end of gender -->
+            </div>
+
+            <div class="col-md-6">
+                <div class="modal-header-employmentdata">
+                    <h4 class="employmentdata">Employment Data</h4>
+                </div>
+                <div class="mt-3" style="height: 11vh;">
+                    <div class="">
+                        <label for="dept" class="form-label">Select Employee Department</label>
+                        <select class="form-select custom-select" id="dept" name="idDept" formControlName="idDept">
+                            <option *ngFor="let department of departments" value={{department.id}}>{{
+                                department.name }}
+                            </option>
+                        </select>
+                    </div>
+                    <ng-container *ngIf="getEmployeeidDept.touched">
+                        <div *ngIf="getEmployeeidDept.hasError('required')" id="emailHelp"
+                            class="form-text text-danger normalfont"> Department is Required </div>
+                    </ng-container>
+                </div>
+
+
+                <div class="inputwrapper">
+                    <label for="salary" class="form-label">Salary</label>
+                    <input type="number" min="0" class="form-control" id="salary" name="salary" formControlName="salary"
+                        placeholder="Enter Salary">
+                    <ng-container *ngIf="getEmployeesalary.touched">
+                        <div *ngIf="getEmployeesalary.hasError('required')" id="emailHelp"
+                            class="form-text text-danger normalfont"> Salary is Required </div>
+                    </ng-container>
+                </div>
+                <div class="inputwrapper">
+                    <label for="contract" class="form-label">Contract Date</label>
+                    <input type="date" class="form-control" id="contract" name="contractDate"
+                        formControlName="contractDate">
+                    <ng-container *ngIf="getEmployeecontractDate.touched">
+                        <div *ngIf="getEmployeecontractDate.hasError('required')" id="emailHelp"
+                            class="form-text text-danger normalfont"> Contract Date is Required </div>
+                        <div *ngIf="getEmployeecontractDate.hasError('minContractDate')" id="emailHelp"
+                            class="form-text text-danger normalfont"> The company started in 2008 </div>
+                    </ng-container>
+                </div>
+
+
+                <div class="inputwrapper">
+                    <label for="arrive" class="form-label">Arriving Time</label>
+                    <input type="time" class="form-control" id="arrive" name="arrivingTime"
+                        formControlName="arrivingTime">
+                    <ng-container *ngIf="getEmployeearrivingTime.touched">
+                        <div *ngIf="getEmployeearrivingTime.hasError('required')" id="emailHelp"
+                            class="form-text text-danger normalfont"> Arriving Time is Required </div>
+                    </ng-container>
+                </div>
+                <div class="inputwrapper">
+                    <label for="leave" class="form-label">Leaving Time</label>
+                    <input type="time" class="form-control" id="leave" name="leavingTime" formControlName="leavingTime">
+                    <ng-container *ngIf="getEmployeeleavingTime.touched">
+                        <div *ngIf="getEmployeeleavingTime.hasError('required')" id="emailHelp"
+                            class="form-text text-danger normalfont"> Leaving Time is Required </div>
+                    </ng-container>
+                </div>
+
+
+
+
+            </div>
+            <div class=" d-flex justify-content-end btnsWrapper">
+                <button [disabled]="!addempform.valid" class="btn btn-addemp" type="submit">{{ employeeId == 0 ?
+                    "Add" : "Edit" }}</button>
+                <button class="btn btn-reset ms-4" (click)="resetForm($event)">Clear</button>
+            </div>
+
+        </form>
+    </div>
+    <div *ngIf="loading" class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>

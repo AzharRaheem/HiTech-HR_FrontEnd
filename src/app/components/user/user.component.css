@@ -1,0 +1,89 @@
+.container-fluid {
+    padding-top: 7vh;
+    height: 100vh;
+}
+
+.wrapper {
+    width: 70%;
+    margin-left: 20%;
+    padding-bottom: 10%;
+    background-color: white;
+    border-radius: 20px;
+    height: 93%;
+    overflow: hidden;
+}
+
+.model-header {
+    display: flex;
+    position: relative;
+    margin-top: 2%;
+}
+
+
+.model-header i {
+    color: #17B890;
+    margin-right: 2%;
+    margin-left: 2%;
+    font-size: 32px;
+    position: absolute;
+    left: 1vw;
+    top: .5vh;
+
+}
+
+.model-header .model-titel {
+    color: #17B890;
+    position: absolute;
+    left: 5.5vw;
+    top: 2.5vh;
+}
+
+.model-body {
+    margin-top: 3%;
+    margin-left: 5%;
+    margin-right: 5%;
+    position: relative;
+}
+
+
+.img-bage {
+    position: absolute;
+    bottom: -25vh;
+    left: 38vw;
+
+
+}
+
+.img-bage img {
+    height: 35vh;
+}
+
+label {
+    color: #17B890;
+    font-size: 16px;
+    margin-bottom: 1vh;
+}
+
+.role-select {
+    height: 6vh; 
+    border-color: #17B890;
+}
+.btn-save {
+    background-color: #17B890;
+    color: white;
+}
+.form-group input:focus{
+    height: 6vh;
+    margin: 0;
+    padding: 0;
+}
+.form-group input:focus~label{
+   
+    margin: 0;
+    padding: 0;
+}
+
+.input-g {
+    margin: 2vh 0;
+}
+

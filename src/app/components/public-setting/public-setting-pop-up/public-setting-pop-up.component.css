@@ -1,0 +1,37 @@
+label {
+    margin-left: 1vw;
+}
+
+input {
+    width: 60%;
+}
+
+.modal-header {
+    position: relative;
+    background-color: #2a6889;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.modal-title {
+    margin: auto;
+    color: white;
+}
+
+.title {
+    color: #2a6889;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+}
+
+.custom-select {
+    width: 60%;
+}
+
+.btn-save {
+    background-color: #2a6889;
+    color: white;
+}
+
+.modal-content {
+    border-radius: 20px 20px 20px 20px;
+}

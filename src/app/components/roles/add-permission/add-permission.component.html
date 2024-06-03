@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="page">
+    <div class="page-title">Permissions</div>
+    <div class="row">
+      <!-- <div class="perm-select">
+        <a href="#" class="choose all">All permissions</a>
+        <a href="#" class="choose custom">Private Custom</a>
+      </div> -->
+      <!-- (ngSubmit)=" onSubmit()" -->
+      <form #myForm="ngForm" (submit)="onSubmit(myForm)">
+        <div>
+          <span class="text-danger ms-5">{{validPemission}}</span>
+        </div>
+        <div class="form-position">
+          <label for="roleName" class="form-label me-3">Group Name</label>
+          <input type="text" class="text" id="roleName" placeholder="Group Name" name="groupName" [value]="roleName"
+            [disabled]="isDiabled" ngModel required minlength="3">
+        </div>
+        <div *ngIf="myForm.controls['groupName'].errors?.['required'] && myForm.controls['groupName'].touched">
+          <span class="error">Name is required</span>
+        </div>
+        <div *ngIf="myForm.controls['groupName'].errors?.['minlength'] && myForm.controls['groupName'].touched">
+          <span class="error">Name must be at least 3 characters long</span>
+        </div>
+        <div>
+          <span class="error">{{uniqueError}}</span>
+        </div>
+
+        <div class="row table-position">
+
+          <table class="col-10 table-bordered table-striped table-condensed table-fixed">
+            <thead>
+              <tr>
+                <th class="col">Group Name</th>
+                <th class="col text-center">View</th>
+                <th class="col text-center">Create</th>
+                <th class="col text-center">Update</th>
+                <th class="col text-center">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr *ngFor="let prem of permissions; let i = index">
+                <td class="col">{{prem.name}}</td>
+                <td class="col text-center">
+                  <input type="checkbox" name="view" [id]="prem.name + '_view'" [checked]="prem.view">
+
+                </td>
+                <td class="col text-center">
+                  <input type="checkbox" name="create" [id]="prem.name + '_create'" [checked]="prem.create"
+                    [disabled]="prem.name == 'SalaryReport' ||prem.name == 'Groups'">
+                </td>
+                <td class="col text-center">
+                  <input type="checkbox" name="update" [id]="prem.name + '_update'" [checked]="prem.update"
+                    [disabled]="prem.name == 'Users' || prem.name == 'SalaryReport' ||prem.name == 'Groups'">
+
+                </td>
+                <td class="col text-center">
+                  <input type="checkbox" name="delete" [id]="prem.name + '_delete'" [checked]="prem.delete"
+                    [disabled]="prem.name == 'Users' || prem.name == 'SalaryReport'||prem.name == 'Groups'||prem.name =='PublicSetting'">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button type="submit" class="btn-seve">Save changes</button>
+        </div>
+
+      </form>
+    </div>
+    <div *ngIf="loading" class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+
+  </div>
+
+</div>

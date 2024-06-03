@@ -1,0 +1,57 @@
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed': ''">
+    <div class="logo-container">
+        <a (click)="toggleCollapse()" class="logo"><img src="../../../assets/images/LogoDone.PNG" alt="hav"  ></a>
+        <div class="logo-text" @fadeInOut *ngIf="collapsed"><!--Write your App Namer Here--></div>
+        <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
+            <i class="fal fa-times close-icon"></i>
+        </button>
+    </div>
+    <ul class="sidenav-nav">
+        <li class="sidenav-nav-item" *ngFor="let data of navData">
+            <a class="sidenav-nav-link" [routerLink]="[data.routeLink]"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}"
+            >
+                <i class="sidenav-link-icon" [class]="data.icon"></i>
+                <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+                    {{data.label}}
+                </span>
+            </a>
+        </li>
+        <li class="border-top my-3"></li>
+        <div class="dropdown mt-2 sidenav-nav-item  " style="position: relative;">
+
+            <!-- <a href="#" class="link-light text-decoration-none dropdown-toggle"   id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false"> -->
+
+                <a href="#" class="link-light text-decoration-none d-flex justify-content-center align-items-center" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                    <!-- <i class="bi bi-person-circle" style="color: white; display:inline-block;  "> </i> -->
+                    <img src="assets/images/user2.png" alt="hav" style="width:60px; height:60px; position: absolute; left:-.3vw"  >
+                </a>
+                
+      
+            <!-- <div class="pb-5 bg-dark" style="margin: 10%;"> -->
+                <strong @fadeInOut *ngIf="collapsed " class="text-light  p-0  " style="position: absolute; top:-1.3vh; left: 5vw;" >{{username}}</strong>
+            <!-- </div> -->
+            <ul class="dropdown-menu text-small shadow " aria-labelledby="dropdownUser2">
+
+              <li><a class="dropdown-item"  [routerLink]="['/roles']" >Permissions</a></li>
+
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item"  (click)="logout()">Logout</a></li>
+            </ul>
+
+        </div>
+
+
+            </ul>
+<!-- </a> -->
+
+        <!-- </div> -->
+    <!-- </ul> -->
+
+    
+
+</div>
+
+
+

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="page">
+    <div class="page-title">Groups</div>
+
+    <div class="form-position">
+      <button type="button" class=" btn-save" (click)="navigateToDetails(0)">Add</button>
+    </div>
+    <div class=" row table-position">
+
+      <table class="table ">
+        <thead>
+          <tr>
+            <th scope="col " colspan="2">Group Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let role of roles ">
+            <td (click)=" navigateToDetails(role.id)">{{role.groupName}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="loading" class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+
+    </div>
+  </div>
+</div>

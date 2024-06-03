@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="card m-0">
+    <div class="modal-header ">
+      <h3 class="modal-title " id="header">Employees</h3>
+      <img class="employeesImg" src="../../../assets/images/emplyees.png" alt="">
+    </div>
+    <div class="btn-upload">
+      
+    <input type="file" style="display: none" #importexcel (change)="fileSelection($event)" >
+    <i (click)="importexcel.click();" class="bi bi-file-earmark-arrow-up fs-2 ms-1 text-success me-2"></i>
+    <button class="btn btn-addemp" [routerLink]="['/employee', '0', 'edit']">
+      Add Employee
+    </button>
+
+    </div>
+    <div class="tableContainer">
+      <table class="table table-hover mb-0">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Address</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Arriving Time</th>
+            <th scope="col">Leaving Time</th>
+            <th scope="col">Department Name</th>
+            <th scope="col" colspan="3">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees">
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.gender }}</td>
+            <td>{{ employee.address }}</td>
+            <td>{{ employee.salary }}</td>
+            <td>{{ employee.arrivingTime }}</td>
+            <td>{{ employee.leavingTime }}</td>
+            <td>{{ employee.departmentName }}</td>
+
+            <td>
+              <i (click)="onClickUpdate(employee.nationalID)" class="bi bi-pencil-fill fs-4 mx-2"></i>
+              <i (click)="onClickDelete(employee.nationalID)" class="bi bi-trash text-danger fs-4 mx-2"></i>
+              <i (click)="navigateToDetails(employee.nationalID)" class="bi bi-person-vcard fs-4 mx-2"></i>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div *ngIf="loading" class="spinner-border text-primary" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>

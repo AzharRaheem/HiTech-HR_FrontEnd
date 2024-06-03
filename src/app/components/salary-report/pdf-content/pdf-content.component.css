@@ -1,0 +1,32 @@
+.prop-group {
+    margin-block: 2vh;
+    display: flex;
+    margin: auto;
+    width: fit-content;
+}
+
+.prop-title {
+    width: 15vw;
+    margin-right: 10vw;
+}
+
+.prop-content {
+    width: 8vw;
+    font-size: 12px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1vh;
+}
+
+.modal-title {
+    margin-left: 35%;
+    color: #17B890;
+}
+
+.salaryimg {
+    width: 4vw;
+    margin-right: 35%;
+}

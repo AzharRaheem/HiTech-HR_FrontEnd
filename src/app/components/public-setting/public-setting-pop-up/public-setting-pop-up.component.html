@@ -1,0 +1,89 @@
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title " id="exampleModalLabel">Public Setting</h5>
+            </div>
+            <div class="modal-body">
+                <form (submit)="save($event)">
+                    <div class="form-group row mb-2">
+                        <label for="extraHours" class="col-sm-10 col-form-label">Extra Hours</label>
+                        <div class="col-sm-12 d-flex ps-4">
+                            <input type="number" min="1" max="4" class="form-control" id="extraHours" name="extraHours"
+                                placeholder="Enter Extra Hours Value" [(ngModel)]="extraHours" #extr>
+                            <div *ngIf="extraHoursField" id="require1" class="form-text text-danger ms-5">
+                                Field is Required
+                            </div>
+                            <ng-container *ngIf="!extraHoursField">
+                                <div *ngIf="extraHoursInValid" id="require12"
+                                    class="form-text text-danger text-center ms-5">
+                                    Field Must between (1,4)
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-2">
+                        <label for="deductionHours" class="col-sm-10 col-form-label">Deduction Hours</label>
+                        <div class="col-sm-12 d-flex ps-4">
+                            <input type="number" min="1" max="4" class="form-control " id="deductionHours"
+                                name="deductionHours" placeholder="Enter Deduction Hours Value"
+                                [(ngModel)]="deductionHours">
+                            <div *ngIf="deductionHoursField" id="require2" class="form-text text-danger ms-5">
+                                Field is Required
+                            </div>
+                            <ng-container *ngIf="!deductionHoursField">
+                                <div *ngIf="deductionHoursInValid" id="require12"
+                                    class="form-text text-danger text-center ms-5">
+                                    Field Must between (1,4)
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <h6 class="title">WeekEnd Holidays</h6>
+                    <div class="form-group row mb-2">
+                        <div class="mb-2">
+                            <label for="weekendDay1" class="col-sm-8 col-form-label">WeekEnd Day1</label>
+                            <div class="d-flex ps-3">
+                                <select class="custom-select col-sm-10 p-1" id="weekendDay1" name="weekendDay1"
+                                    [(ngModel)]="weekendDay1">
+                                    <option selected disabled>Choose...</option>
+                                    <option value="Sunday">Sunday</option>
+                                    <option value="Monday">Monday</option>
+                                    <option value="Tuesday">Tuesday</option>
+                                    <option value="Wednesday">Wednesday</option>
+                                    <option value="Thursday">Thursday</option>
+                                    <option value="Friday">Friday</option>
+                                    <option value="Saturday">Saturday</option>
+                                </select>
+                                <div *ngIf="weekendDay1Field" id="require3" class="form-text text-danger ms-5">
+                                    Field is Required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <label for="weekendDay2" class="col-sm-8 col-form-label">WeekEnd Day2</label>
+                            <div class="d-flex ps-3">
+                                <select class="custom-select col-sm-10 p-1" id="weekendDay2" name="weekendDay2"
+                                    [(ngModel)]="weekendDay2">
+                                    <option selected disabled>Choose...</option>
+                                    <option value="Sunday">Sunday</option>
+                                    <option value="Monday">Monday</option>
+                                    <option value="Tuesday">Tuesday</option>
+                                    <option value="Wednesday">Wednesday</option>
+                                    <option value="Thursday">Thursday</option>
+                                    <option value="Friday">Friday</option>
+                                    <option value="Saturday">Saturday</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-save px-5" >
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

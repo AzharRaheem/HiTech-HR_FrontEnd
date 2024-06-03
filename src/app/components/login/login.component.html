@@ -1,0 +1,62 @@
+<div class="body">
+
+  <div class="wrapper">
+    <span class="bg-animate"></span>
+    <div class="form-box login">
+      <div class="logo">
+       
+      </div>
+      <h2>Login</h2>
+
+      <form (submit)="loginHandler($event)" [formGroup]="loginForm">
+        <div class="input-box">
+
+          <i class="bi bi-person-fill"></i>
+          <input type="email" name="email" placeholder="" id="email" [(ngModel)]="email" class="normalfont"
+            formControlName="email"  style="color: white;">
+          <label for="email">Email</label>
+   
+          <ng-container *ngIf="getEmail.touched|| validationErrors.Email">
+            <div *ngIf="getEmail.hasError('required')" id="emailHelp" class="form-text normalfont">
+              Email is Required
+            </div>
+            <div *ngIf="validationErrors.Email" id="emailHelp" class="form-text normalfont">
+              {{ validationErrors.Email[0] }}
+            </div>
+          </ng-container>
+
+        </div>
+        <div class="input-box" style="position: relative;">
+
+          <!-- <i class="bi bi-lock-fill"></i> -->
+          <input type="password" name="password" placeholder="" id="password" class="normalfont"
+            formControlName="password">
+          <label for="passward">Password</label>
+          <!-- <span class="toggle-password" (click)="togglePasswordVisibility()">
+            <i class="bi" [ngClass]="{ 'bi-eye': !showPassword, 'bi-eye-slash': showPassword }"></i>
+          </span> -->
+
+          <ng-container *ngIf="getPassword.touched">
+            <div *ngIf="getPassword.hasError('required')" id="emailHelp" class="form-text normalfont">
+              Password is Required</div>
+  
+          </ng-container>
+
+        </div>
+        <div class="row">
+       
+          <button type="submit" class="btn">Sign In</button>
+        </div>
+        <p *ngIf="this.validationErrors !== ''&& this.validationErrors!='[object Object]'" class=" normalfont mt-1">{{ validationErrors }}</p>
+      </form>
+
+    </div>
+    <div class="info-text login">
+      <h2>Welcome Back!</h2>
+      <p>In Hi-Tech HR System</p>
+      <!-- <p>leos quidem qui nam a quaerat veniam consequuntur voluptatibus commodi voluptas temporibus!</p> -->
+      <img src="assets/images/1.webp" alt="">
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="wrapper">
+  <div class="profile-card js-profile-card">
+    <div class="profile-card-img ">
+      <img src="./../../assets/images/emp.png" alt="profile card">
+    </div>
+
+    <div class="profile-card__cnt js-profile-cnt">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3 modal-header-personal">
+            <h4 class="personaldata">Personal Data</h4>
+          </div>
+
+          <p class="lead mb-3">Name : {{employee?.name}}</p>
+          <p class="lead mb-3">Address : {{employee?.address}}</p>
+          <p class="lead mb-3">Phone Number : {{employee?.phoneNumber}}</p>
+          <p class="lead mb-3">Gender : {{employee?.gender}}</p>
+          <p class="lead mb-3">Nationality : {{employee?.nationality}}</p>
+          <p class="lead mb-3">Birth Date : {{employee?.birthDate}}</p>
+          <p class="lead mb-5">National ID : {{employee?.id}}</p>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3 modal-header-employmentdata">
+            <h4 class="employmentdata">Employment Data</h4>
+          </div>
+
+          <p class="lead mb-3">Department Name : {{department}}</p>
+          <p class="lead mb-3">Contract Date : {{employee?.contractDate}}</p>
+          <p class="lead mb-3">Salary : {{employee?.salary}}</p>
+          <p class="lead mb-3">Arriving Time : {{employee?.arrivingTime}}</p>
+          <p class="lead mb-5">Leaving Time : {{employee?.leavingTime}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

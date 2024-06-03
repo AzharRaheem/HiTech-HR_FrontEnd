@@ -1,0 +1,182 @@
+.container-fluid {
+    height: 100%;
+    width: 100%;
+    margin-left: -80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container-fluid .card {
+    border-radius: .8rem;
+    width: 55vw;
+    margin-left: 20%;
+    padding-inline: 1vw;
+    height: 120vh;
+    position: relative;
+}
+
+.container-fluid .card .headerWrapper {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 2vh;
+}
+
+.container-fluid .card .headerWrapper .addEmpImg {
+    width: 8vw;
+    height: 13vh;
+    margin-left: 13vw;
+}
+
+.container-fluid .card .headerWrapper .main .header__title {
+    color: #17B890;
+    text-align: center;
+}
+
+.headerWrapper {
+    justify-content: center;
+    align-items: center;
+    margin-left: -7vw;
+}
+
+
+.header__description {
+    color: #039973;
+    font-size: 17px;
+}
+
+
+.inputwrapper {
+    height: 13vh;
+    width: 70%;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #17B890;
+    color: #fff;
+    border: 2px solid #17B890;
+    border-radius: 3px;
+    font-size: 0.875rem;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #444e83;
+    border-color: #444e83;
+}
+
+
+
+input {
+    width: 80%;
+}
+
+.form-check-input {
+    width: 5%;
+
+}
+
+.radio-check {
+    display: inline;
+    margin-left: 30px;
+}
+
+.modal-header {
+    position: relative;
+    background-color: #17B890;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 190px;
+    width: 70vw;
+}
+
+.modal-title {
+    margin: auto;
+    color: white;
+}
+
+
+
+.title {
+    color: #17B890;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+}
+
+.btn-addemp {
+    background-color: #17B890;
+    color: white;
+    width: 80px;
+}
+
+.btn-reset {
+    background-color: #dc3545;
+    color: white;
+    width: 80px;
+}
+
+.modal-header-personal {
+    position: relative;
+    background-color: #17B890;
+    border-radius: 20px;
+    width: 12vw;
+
+}
+
+.personaldata,
+.employmentdata {
+    font-family: Poppins-Regular;
+    padding: 3px;
+    font-weight: unset !important;
+    /* Remove default font weight */
+    text-align: center;
+    color: white;
+}
+
+.modal-header-employmentdata {
+    position: relative;
+    background-color: #17B890;
+    border-radius: 20px;
+    width: 15vw;
+
+}
+
+#dept {
+    width: 70% !important;
+    /* Adjust the width as needed */
+}
+
+
+.btnsWrapper {
+    position: absolute;
+    bottom: 3vh;
+    right: 1vw;
+}
+
+.form-control {
+    width: 95%;
+}
+
+.form-text {
+    font-size: 10px;
+}
+
+.normalfont {
+    font-family: sans-serif;
+    font-size: medium;
+}
+
+.spinner-border {
+    position: absolute;
+    top: 45%;
+    left: 52%;
+    width: 3rem;
+    height: 3rem;
+}
