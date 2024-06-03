@@ -1,6 +1,19 @@
-# HRSystem
+# HiTech HR System
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12.
+
+**Follow these steps to run this app locally.**
+**Step 01:**
+Clone the Repository.
+**Step 02:**
+Open the Project in VS-Code
+**Step 03:**
+Open Terminal Windows and Run 
+`npm install`
+Command to Restore the packages.
+**Step 04:**
+Run the App with following command
+`ng serve`
 
 ## Development server
 
